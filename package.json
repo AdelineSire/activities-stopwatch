@@ -1,0 +1,19 @@
+{
+  "name": "activities-stopwatch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdelineSire/activities-stopwatch.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdelineSire/activities-stopwatch/issues"
+  },
+  "homepage": "https://github.com/AdelineSire/activities-stopwatch#readme"
+}

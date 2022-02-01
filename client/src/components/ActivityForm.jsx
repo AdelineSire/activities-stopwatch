@@ -15,10 +15,17 @@ const Input = styled.input`
 	width: 256px;
 `;
 
-function ActivityForm() {
+function ActivityForm()
+{
+	const handleSubmit = (e) =>
+	{
+		e.preventDefault();
+		console.log(e.target.value)	
+	}
+
 	return (
-		<Form>
-			<Input />
+		<Form onSubmit={handleSubmit}>
+			<Input type="text"/>
 			<AddButton>
 				<AddIcon />
 			</AddButton>

@@ -14,7 +14,7 @@ const StyledButton = styled.button`
 	border-radius: 8px;
 `;
 
-function Button() {
+function AddButton() {
 	return (
 		<StyledButton>
 			<AddIcon />
@@ -22,4 +22,4 @@ function Button() {
 	);
 }
 
-export default Button;
+export default AddButton;

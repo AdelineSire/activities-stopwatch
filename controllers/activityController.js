@@ -26,6 +26,15 @@ const getActivity = (req, res) => {
 		});
 };
 
+const getActivities = (req, res) => {
+	Activity.find({})
+		.then((activities) => {
+			res.json(activities);
+		})
+		.catch((err) => console.log('err', err));
+};
+
 router.route('/').post(createActivity);
+router.route('/').get(getActivities);
 router.route('/:id').get(getActivity);
 module.exports = router;

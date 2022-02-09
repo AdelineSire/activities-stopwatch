@@ -23,4 +23,13 @@ const getActivity = (id) => {
 		});
 };
 
-export { createActivity, getActivity };
+const getActivities = () => {
+	return axios
+		.get(API_URL + 'activity/')
+		.then((res) => res.data)
+		.catch((err) => {
+			console.log('err', err);
+		});
+};
+
+export { createActivity, getActivity, getActivities };

@@ -20,9 +20,7 @@ const Input = styled.input`
 function ActivityForm() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
 		console.log(e.target.inputName.value);
-
 		createActivity({ toto: e.target.inputName.value })
 			.then((e) => {
 				console.log(e);
@@ -34,7 +32,7 @@ function ActivityForm() {
 
 	return (
 		<Form onSubmit={handleSubmit}>
-			<Input type='text' name='inputName' />
+			<Input type='text' defaultValue='' name='inputName' />
 			<AddButton>
 				<AddIcon />
 			</AddButton>

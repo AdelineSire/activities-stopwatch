@@ -1,27 +1,42 @@
 import { useEffect, useState } from 'react';
+import styled from 'styled-components';
 
 import ActivityForm from './components/ActivityForm';
-import ActivityDraw from './components/ActivityDraw';
+import ActivityList from './components/ActivityList';
 
-import { getActivity } from './services/api';
+import { getActivities } from './services/api';
+
+const StyledParagraph = styled.p`
+	color: white;
+`;
 
 function App() {
+	const [isloading, setIsloading] = useState(true);
 	const [activities, setActivities] = useState([]);
 
 	useEffect(() => {
-		getActivity('hgnukfy').then((activity) => {
-			setActivities((activities) => [...activities, activity]);
-			console.log('activity in useEffect', activity);
-		});
+		getActivities()
+			.then((activities) => {
+				if (activities !== null) setActivities(activities);
+				setIsloading(false);
+			})
+			.catch((err) => console.log(err));
 	}, []);
 
 	return (
 		<>
-			{console.log('activities in return App', activities[0].name)}
-			<div>
-				<ActivityForm />
-				<ActivityDraw activityName={activities[0].name} />
-			</div>
+			<ActivityForm />
+			{isloading ? (
+				<StyledParagraph>Loading...</StyledParagraph>
+			) : activities.length > 0 ? (
+				<div>
+					{/* {console.log('length', activities, activities.length)} */}
+
+					<ActivityList activities={activities} />
+				</div>
+			) : (
+				<StyledParagraph>No activity registered</StyledParagraph>
+			)}
 		</>
 	);
 }

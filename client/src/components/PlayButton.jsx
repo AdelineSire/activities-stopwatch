@@ -1,8 +1,28 @@
+import styled from 'styled-components';
 import PlaydArrow from '@material-ui/icons/PlayArrow';
 import Stop from '@material-ui/icons/Stop';
 
+const StyledButton = styled.button`
+	/* all: unset; */
+	border: none;
+	border-radius: 4px;
+	padding: 4px 8px;
+	background-color: ${(props) => props.color};
+	color: white;
+`;
+
 const PlayButton = ({ setPlay, play }) => {
-	return <button onClick={setPlay}>{play ? <PlaydArrow /> : <Stop />}</button>;
+	let bg;
+	if (play === true) {
+		bg = '#a44da6';
+	} else {
+		bg = '#4d96a6';
+	}
+	return (
+		<StyledButton color={bg} onClick={setPlay}>
+			{play ? <PlaydArrow /> : <Stop />}
+		</StyledButton>
+	);
 };
 
 export default PlayButton;

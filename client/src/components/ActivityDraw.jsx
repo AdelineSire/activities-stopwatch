@@ -8,7 +8,8 @@ const StyledActivityDraw = styled.div`
 	background-color: white;
 	display: flex;
 	align-items: center;
-	justify-content: space-evenly;
+	justify-content: space-between;
+	padding: 8px;
 `;
 
 const ActivityDraw = ({ activityName }) => {

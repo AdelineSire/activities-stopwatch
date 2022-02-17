@@ -17,16 +17,17 @@ const Input = styled.input`
 	width: 256px;
 `;
 
-function ActivityForm() {
+function ActivityForm({setIsloading}) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(e.target.inputName.value);
 		createActivity({ toto: e.target.inputName.value })
-			.then((e) => {
-				console.log(e);
+			.then(() => {
+				setIsloading(true);
+				e.target.inputName.value = "";
 			})
 			.catch((e) => {
-				console.log(e);
+				console.log("err ", e);
 			});
 	};
 

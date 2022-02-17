@@ -4,7 +4,7 @@ const ActivityList = ({ activities }) => {
 	return (
 		<section>
 			{activities.map((activity) => (
-				<ActivityDraw activityName={activity.name} />
+				<ActivityDraw key={activity._id} activityName={activity.name} />
 			))}
 		</section>
 	);

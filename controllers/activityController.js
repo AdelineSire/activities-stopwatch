@@ -3,7 +3,8 @@ const router = express.Router();
 
 const Activity = require('../models/activity');
 
-const createActivity = (req, res) => {
+const createActivity = (req, res) =>
+{
 	console.log('req', req.body);
 	const name = req.body.toto;
 
@@ -11,24 +12,32 @@ const createActivity = (req, res) => {
 
 	activity
 		.save(activity)
-		.then(() => console.log('activity added'))
-		.catch((err) => {
+		.then(() =>
+		{
+			res.json({ msg: 'activity added' })
+		})
+		.catch((err) =>
+		{
 			console.log('err', err);
 		});
 };
 
-const getActivity = (req, res) => {
+const getActivity = (req, res) =>
+{
 	const id = req.params.id;
 	Activity.findOne({ name: id })
 		.then((activity) => res.json(activity))
-		.catch((err) => {
+		.catch((err) =>
+		{
 			console.log('err', err);
 		});
 };
 
-const getActivities = (req, res) => {
+const getActivities = (req, res) =>
+{
 	Activity.find({})
-		.then((activities) => {
+		.then((activities) =>
+		{
 			res.json(activities);
 		})
 		.catch((err) => console.log('err', err));

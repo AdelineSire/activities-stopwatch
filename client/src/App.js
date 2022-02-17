@@ -16,16 +16,17 @@ function App() {
 
 	useEffect(() => {
 		getActivities()
-			.then((activities) => {
+			.then((activities) =>
+			{
 				if (activities !== null) setActivities(activities);
 				setIsloading(false);
 			})
 			.catch((err) => console.log(err));
-	}, []);
+	}, [isloading]);
 
 	return (
 		<>
-			<ActivityForm />
+			<ActivityForm setIsloading={setIsloading}/>
 			{isloading ? (
 				<StyledParagraph>Loading...</StyledParagraph>
 			) : activities.length > 0 ? (

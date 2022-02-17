@@ -46,8 +46,8 @@ const getActivities = (req, res) =>
 const deleteActivity = (req, res) =>
 {
 	Activity.findByIdAndRemove(req.params.id)
-		.then(rep => { console.log("deleted"); })
-		.catch(err => { console.log("DeleteById err ", err); })
+		.then(rep => res.json({msg: "deleteActivity by id - Activity deleted"}))
+		.catch(err => { console.log("deleteActivity by id -  err ", err); })
 }
 
 router.route('/').post(createActivity);

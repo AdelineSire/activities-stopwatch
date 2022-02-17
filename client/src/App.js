@@ -37,13 +37,10 @@ function App()
 
 	const DeleteActivity = (id) =>
 	{
-		console.log("DeleteActivity Isloading : ici exec !!! "); // XXX
-		setIsloading(true)
-
 		deleteActivity(id)
 			.then(() =>
 			{
-				console.log("DeleteActivity Isloading : jamais exec ??? "); // XXX
+				console.log("DeleteActivity done "); // XXX
 				setIsloading(true)
 			}) // lance le rechargement XXX
 			.catch(err => 

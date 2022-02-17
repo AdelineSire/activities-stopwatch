@@ -25,7 +25,7 @@ const createActivity = (req, res) =>
 const getActivity = (req, res) =>
 {
 	const id = req.params.id;
-	Activity.findOne({ name: id })
+	Activity.findOne({ name: id }) // XXX
 		.then((activity) => res.json(activity))
 		.catch((err) =>
 		{
@@ -43,7 +43,15 @@ const getActivities = (req, res) =>
 		.catch((err) => console.log('err', err));
 };
 
+const deleteActivity = (req, res) =>
+{
+	Activity.findByIdAndRemove(req.params.id)
+		.then(rep => { console.log("deleted"); })
+		.catch(err => { console.log("DeleteById err ", err); })
+}
+
 router.route('/').post(createActivity);
 router.route('/').get(getActivities);
 router.route('/:id').get(getActivity);
+router.route('/:id').delete(deleteActivity);
 module.exports = router;

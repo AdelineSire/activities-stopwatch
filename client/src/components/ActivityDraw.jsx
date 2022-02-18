@@ -17,9 +17,8 @@ display : flex;
 align-items: center;
 gap:1rem;`;
 
-const ActivityDraw = ({ activity, delActivity }) => {
+const ActivityDraw = ({ activity, delActivity, handlePlay, isPlaying }) => {
   const [show, setShow] = useToggle(false);
-  const [play, setPlay] = useToggle(true);
 
   return (
     <StyledActivityDraw>
@@ -29,7 +28,7 @@ const ActivityDraw = ({ activity, delActivity }) => {
       </StyledButtonContainer>
       {show && <p>coucou</p>}
       <ActivityName activityName={activity.name} />
-      <PlayButton setPlay={setPlay} play={play} />
+      <PlayButton setPlay={() => { handlePlay(activity._id); console.log("click play", isPlaying)}} isPlaying={isPlaying} />
     </StyledActivityDraw>
   );
 };

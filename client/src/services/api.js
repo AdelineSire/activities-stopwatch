@@ -46,4 +46,15 @@ const deleteActivity = (id) =>
 		.catch(err => err);
 }
 
-export { createActivity, getActivity, getActivities, deleteActivity };
+const updateActivity = (id, dateValues) =>
+{
+	return axios
+		.put(API_URL + 'activity/' + id, dateValues)
+		.then((res) => res.json({msg : "updateActivity ok"}))
+		.catch((err) =>
+		{
+			console.log('err', err);
+		});
+}
+
+export { createActivity, getActivity, getActivities, deleteActivity, updateActivity };

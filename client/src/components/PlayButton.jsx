@@ -13,14 +13,14 @@ const StyledButton = styled.button`
 
 const PlayButton = ({ setPlay, play }) => {
 	let bg;
-	if (play === true) {
+	if (play === false) {
 		bg = '#a44da6';
 	} else {
 		bg = '#4d96a6';
 	}
 	return (
 		<StyledButton color={bg} onClick={setPlay}>
-			{play ? <PlaydArrow /> : <Stop />}
+			{play ? <Stop /> : <PlaydArrow />}
 		</StyledButton>
 	);
 };
